@@ -4,17 +4,17 @@ writestr=$2
 
 if [ $# -eq 2 ]
 then
-    if [ -w $1 ]
+    if [ -e "$1" ]
     then
         echo ${writestr} > ${filepath}
-        exit 1
+        exit 0
     else
         echo "$1 doesn't exist"
         echo "Making a new Directory"
         DIR_PATH=$(dirname "$filepath")
         mkdir -p ${DIR_PATH}
         echo ${writestr} > ${filepath}
-        exit 1
+        exit 0
     fi
 else
     echo "Bad arguments"
